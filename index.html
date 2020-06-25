@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin: 20px 0 0;
+        }
+
+        h2 {
+            margin: 50px 0 20px;
+        }
+
+        .code {
+            white-space: pre; 
+            font-size: 17px; 
+            letter-spacing: 1px;
+            text-align: left;
+            display: inline-block;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Коженевский Андрей</h1>
+    <h2>Задание №1</h2>
+    <p class = "code">
+        var tags = ['div', 'span', 'img', 'title', 'p'];
+
+        var classes = ['block', 'string', 'photo', 'start', 'parag'];
+        
+        var style = document.createElement('style');
+        
+        document.head.append(style);
+        
+        style.innerText = " block - div, string - span, photo - img, start - title, parag - p ";
+        
+        function addElements() {
+          
+          for (i = 0; i < tags.length; i++) {
+            var newElement = document.createElement(tags[i])
+            document.body.append(newElement)
+          }
+        
+          for (i = 0; i < classes.length; i++) {
+            
+            for (i = 0; i < document.body.childNodes.length; i++) {
+              document.body.childNodes[i].classList.add(classes[i])
+            }
+          
+          }
+        
+        }
+        
+        addElements()
+        
+        console.log(document.body)
+        
+        console.log(style)
+    </p>
+    <h2>Задание №2</h2>
+    <p class = "code">
+        var tags = [
+        {
+          tag: 'div',
+          class: 'block',
+          style: 'width: 100px; height: 50px; background-color: red',
+          event: 'click',
+          content: 'coolElement'
+        },
+        {
+          tag: 'p',
+          class: 'paragraph',
+          style: 'width: 200px; height: 50px; background-color: red',
+          event: 'click',
+          content: 'coolElement'  
+        },
+        {
+          tag: 'li',
+          class: 'list',
+          style: 'width: 300px; height: 50px; background-color: red',
+          event: 'click',
+          content: 'coolElement'
+        }
+      ]
+      
+      function addElements() {
+          
+        for (i = 0; i < tags.length; i++) {
+          
+          var newElement = document.createElement(tags[i].tag);
+      
+          document.body.append(newElement);
+      
+         }
+      
+         for (i = 0; i < document.body.childNodes.length; i++) {
+         
+               document.body.childNodes[i].setAttribute('style', tags[i].style);
+      
+               document.body.childNodes[i].setAttribute('class', tags[i].class);
+      
+               document.body.childNodes[i].innerText = tags[i].content;
+      
+         }
+      
+      }
+    </p>
+</body>
+</html>
